@@ -1,0 +1,15 @@
+# Secrets — never commit
+dashboard/data/auth-config.php
+dashboard/data/gsc-credentials.json
+dashboard/data/gsc_token_cache.json
+dashboard/data/cache_*.json
+dashboard/data/*.log
+dashboard/config.local.php
+
+# Backups
+*.bak.*
+*.bak
+
+# OS
+.DS_Store
+Thumbs.db
