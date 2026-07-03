@@ -10,6 +10,17 @@ dashboard/config.local.php
 *.bak.*
 *.bak
 
+# Keys & credentials
+.env
+.env.*
+*.key
+*.pem
+id_rsa
+id_*
+
+# Dependencies
+node_modules/
+
 # OS
 .DS_Store
 Thumbs.db
