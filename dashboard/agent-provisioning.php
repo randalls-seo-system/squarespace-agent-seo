@@ -46,7 +46,7 @@ function lrg_get_agent_page_map(): array {
 function lrg_get_registry_ids(): array {
     static $ids = null;
     if ($ids !== null) return $ids;
-    $file = '/nas/content/live/lrgrealtyblog/wp-content/mu-plugins/lrg-author-bio-card.php';
+    $file = LRG_INSTALL_ROOT . '/wp-content/mu-plugins/lrg-author-bio-card.php';
     if (!file_exists($file)) return [];
     $content = file_get_contents($file);
     preg_match_all('/^\s+(\d+)\s*=>\s*\[/m', $content, $m);
@@ -488,7 +488,7 @@ function lrg_agent_preview(array $d): array {
     // Layer 5: Headshot path
     $headshot = [
         'path' => "/wp-content/uploads/authors/{$nick}.png",
-        'full_path' => "/nas/content/live/lrgrealtyblog/wp-content/uploads/authors/{$nick}.png",
+        'full_path' => LRG_INSTALL_ROOT . "/wp-content/uploads/authors/{$nick}.png",
     ];
 
     // Layer 6: Hub card HTML (dCard for Specialists hub)
@@ -594,7 +594,7 @@ function lrg_agent_execute_provision(array $data): array {
         $results[] = "Layer 2: Set " . count($meta_keys) . " meta keys for user $uid";
 
         // ─── Layer 3: Bio-card Registry ───
-        $registry_file = '/nas/content/live/lrgrealtyblog/wp-content/mu-plugins/lrg-author-bio-card.php';
+        $registry_file = LRG_INSTALL_ROOT . '/wp-content/mu-plugins/lrg-author-bio-card.php';
         $registry_bak = $registry_file . '.bak.' . $ts;
 
         // Backup first
@@ -679,7 +679,7 @@ function lrg_agent_execute_provision(array $data): array {
         }
 
         // ─── Layer 5: Headshot ───
-        $headshot_dir = '/nas/content/live/lrgrealtyblog/wp-content/uploads/authors/';
+        $headshot_dir = LRG_INSTALL_ROOT . '/wp-content/uploads/authors/';
         $headshot_path = $headshot_dir . $nick . '.png';
         if (!empty($data['headshot_data'])) {
             // headshot_data is base64-encoded image from form upload

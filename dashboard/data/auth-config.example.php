@@ -26,7 +26,8 @@ define('LRG_LOGIN_TOKEN_EXPIRY', 900);        // 15 minutes for magic links
 define('LRG_SESSION_TOKEN_EXPIRY', 31536000); // 365 days for sessions
 define('LRG_RATE_LIMIT_MAX', 5);              // max login requests per email per hour
 define('LRG_AUTH_LOG_FILE', __DIR__ . '/dashboard-auth.log');
-define('LRG_WP_LOAD_PATH', '/nas/content/live/INSTALLNAME/wp-load.php');  // ← WPE path
+define('LRG_INSTALL_ROOT', '/nas/content/live/INSTALLNAME');              // ← WPE install root
+define('LRG_WP_LOAD_PATH', LRG_INSTALL_ROOT . '/wp-load.php');
 
 // Permanent login keys (optional — bypass email login)
 // Generate with: openssl rand -hex 32
